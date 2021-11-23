@@ -49,3 +49,10 @@ def draw(rcs):
             for p in adapter:
                 draw_point(p)
             
+
+if __name__ == "__main__":
+    rcs = [
+        Rectangle(1, 1, 10, 10),
+        Rectangle(3, 3, 6, 6)
+    ]
+    draw(rcs)
