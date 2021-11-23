@@ -6,7 +6,6 @@ class Point:
     def draw_point(self):
         print(".", end="")
 
-
 class Line:
     def __init__(self, start, end):
         self.start = start
@@ -35,9 +34,18 @@ class LineToPointAdapter(list):
         right = max(line.start.x, line.end.x)
         top = min(line.start.y, line.end.y)
         bottom = min(line.start.y, line.end.y)
+        if right - left == 0:
+            for y in range(top, bottom):
+                self.points.append(Point(left, y))
+        elif line.end.y - line.start.y == 0:
+            for x in range(left, right):
+                self.points.append(Point(x, top))
 
 def draw(rcs):
     print("\n\n--- Drawing some stuff ---\n")
     for rc in rcs:
         for line in rcs:
-            pass
+            adapter = LineToPointAdapter(line)
+            for p in adapter:
+                draw_point(p)
+            
