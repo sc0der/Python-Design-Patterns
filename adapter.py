@@ -22,7 +22,7 @@ class Rectangle(list):
 class LineToPointAdapter(list):
     count = 0
 
-    def __init__(self,line):
+    def __init__(self, line):
         super().__init__()
         self.count += 1
         print(
