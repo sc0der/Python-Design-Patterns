@@ -1,4 +1,5 @@
 from enum import Enum
+from math import *
 
 class CoordinateSystem(Enum):
     CARTESTIAN = 1
@@ -13,3 +14,11 @@ class Point:
         elif system == CoordinateSystem.POLAR:
             self.x = a * cos(b)
             self.y = a * sin(b)
+
+    @staticmethod
+    def new_cartesian_point(self, x, y):
+        return Point(x, y)
+
+    @staticmethod
+    def new_polar_point(self, rho, theta):
+        return Point(rho * cos(theta), rho * sin(theta))
