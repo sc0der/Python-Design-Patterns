@@ -6,3 +6,9 @@ class Address:
 
     def __str__(self):
         return f'{self.street_address}, {self.city}, {self.country}'
+
+class Person:
+    def __init__(self,name, address):
+        self.name = name
+        self.address = address
+        
