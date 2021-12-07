@@ -30,6 +30,17 @@ class Singleton(object):
 # f = Foo()
 # b = Bar()
 
+# singelton by decorator
+
+def singelton(class_):
+    instance = {}
+    def get_instance(*a, **kw):
+        if class_ not in instance:
+            instance[class_] = class_(*a, **kw)
+        return instance[class_]
+    return get_instance
+
+
 if __name__ == '__main__':
     d1 = Database()
     d2 = Database()
