@@ -8,9 +8,18 @@ class Singleton:
 
 class Database:
     def __init__(self):
-        self.populations = {}
+        self.population = {}
         f = open("capitals.txt", 'r')
         lines = f.readlines()
         for i in range(1, len(lines), 2):
-            self.populations[lines[i].strip()] = int(lines[i+1].strip())
+            self.population[lines[i].strip()] = int(lines[i+1].strip())
         f.close()
+
+class SingletonRecordFinder:
+    def total_population(self, cities):
+        result = 0
+        for c in cities:
+            result += Database().population[c]
+        return result
+
+        
