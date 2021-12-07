@@ -1,4 +1,5 @@
 # Singleton
+import random
 '''
 Singleton - subclassing can never be really smooth
 • Use a module instead of a class (no inheritance, no special methods)
@@ -11,20 +12,26 @@ part if the code) to make it
 class Database:
     __instance = None
     def __init__(self):
-        print("Loading a database from file")
+        id = random.randint(1, 101)
+        print("id = ", id)
 
     def __new__(cls, *a, **kw):
         if not cls.__instance:
             cls.__instance = super(Database, cls).__new__(cls, *a, **kw)
-            return cls.__instance
+        return cls.__instance
 class Singleton(object):
     def __new__(cls, *a, **kw):
         if not hasattr(cls, '_inst'):
             cls._inst = super(Singleton, cls).__new__(*a, **kw)
         return cls._inst
 
-class Foo(Singleton): pass
-class Bar(Foo): pass
-f = Foo()
-b = Bar()
+# class Foo(Singleton): pass
+# class Bar(Foo): pass
+# f = Foo()
+# b = Bar()
+
+if __name__ == '__main__':
+    d1 = Database()
+    d2 = Database()
+    print(d1 == d2)
 # what class
