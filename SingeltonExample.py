@@ -30,4 +30,12 @@ class SingletonTest(unittest.TestCase):
         db2 = Database()
         self.assertEqual(db1, db2)
 
-        
+    def test_singleton_total_population(self):
+        rf = SingletonRecordFinder()
+        names = ["Seoul", 'Mexiko City']
+        tp = rf.total_population(names)
+        self.assertEqual(17500000+17400000, tp)
+
+
+if __name__ == '__main__':
+    unittest.main()
