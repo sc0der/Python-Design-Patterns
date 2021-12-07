@@ -8,8 +8,8 @@ part if the code) to make it
 
 '''
 
-class Database(object):
-
+class Database:
+    __instance = None
     def __init__(self):
         print("Loading a database from file")
 
