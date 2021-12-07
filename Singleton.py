@@ -8,6 +8,15 @@ part if the code) to make it
 
 '''
 
+class Database(object):
+
+    def __init__(self):
+        print("Loading a database from file")
+
+    def __new__(cls, *a, **kw):
+        if not cls.__instance:
+            cls.__instance = super(Database, cls).__new__(cls, *a, **kw)
+            return cls.__instance
 class Singleton(object):
     def __new__(cls, *a, **kw):
         if not hasattr(cls, '_inst'):
