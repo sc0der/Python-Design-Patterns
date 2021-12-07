@@ -40,9 +40,14 @@ def singelton(class_):
         return instance[class_]
     return get_instance
 
+@singelton
+class Database_:
+    def __init__(self):
+        id = random.randint(1, 101)
+        print("id = ", id)
 
 if __name__ == '__main__':
-    d1 = Database()
-    d2 = Database()
+    d1 = Database_()
+    d2 = Database_()
     print(d1 == d2)
 # what class
